@@ -12,12 +12,12 @@ export async function POST(request: NextRequest) {
     if (!name || !email || !phone || !message) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     // Send email to the business
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "KM Jewelry <website@kmjewelry.net>", // Update with your verified domain
       to: ["km.jewelryla@gmail.com"], // Update with your business email
       subject: `New Estimate Request from ${name}`,
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
       console.error("Resend error:", error);
       return NextResponse.json(
         { error: "Failed to send email" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -72,13 +72,13 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { message: "Email sent successfully" },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     console.error("Server error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

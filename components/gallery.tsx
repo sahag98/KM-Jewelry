@@ -1,4 +1,3 @@
-import Image from "next/image";
 import ImageGallery from "./image-gallery";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";

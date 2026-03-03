@@ -83,8 +83,8 @@ export default function EstimateModal() {
             Get Your Free Estimate
           </DialogTitle>
           <DialogDescription className="text-muted-foreground">
-            Tell us about your jewelry project and we'll provide you with a free
-            estimate.
+            Tell us about your jewelry project and we&apos;ll provide you with a
+            free estimate.
           </DialogDescription>
         </DialogHeader>
 
@@ -95,8 +95,8 @@ export default function EstimateModal() {
               Thank You!
             </h4>
             <p className="text-muted-foreground">
-              Your estimate request has been received. We'll get back to you
-              within 24 hours.
+              Your estimate request has been received. We&apos;ll get back to
+              you within 24 hours.
             </p>
           </div>
         ) : (

@@ -4,7 +4,6 @@ import Hero from "@/components/hero";
 import About from "@/components/about";
 import Services from "@/components/services";
 import Gallery from "@/components/gallery";
-import ContactForm from "@/components/contact-form";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
@@ -44,9 +43,8 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <About />
-
         <Gallery />
-        {/* <ContactForm /> */}
+        <Services />
       </main>
       <Footer />
     </div>

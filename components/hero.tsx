@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+
 import { Badge } from "@/components/ui/badge";
 import EstimateModal from "./estimate-modal";
 
@@ -31,7 +30,7 @@ export default function Hero() {
           </h1>
           <p className="text-lg md:text-xl mb-8  max-w-2xl mx-auto">
             Over 40 years of expertise in fixing and restoring timeless pieces
-            that celebrate life's precious moments.
+            that celebrate life&apos;s precious moments.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <EstimateModal />

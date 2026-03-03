@@ -52,7 +52,15 @@ export default function Header() {
             >
               About
             </Link>
-
+            <Link
+              href="#services"
+              className={cn(
+                "text-sm font-medium hover:text-primary transition-colors",
+                isScrolled ? "text-foreground" : "text-white",
+              )}
+            >
+              Services
+            </Link>
             <Link
               href="#gallery"
               className={cn(
@@ -94,6 +102,13 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               About
+            </Link>
+            <Link
+              href="#services"
+              className="text-sm font-medium py-2 hover:text-primary transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Services
             </Link>
             <Link
               href="#gallery"
