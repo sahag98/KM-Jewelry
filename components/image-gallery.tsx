@@ -1,22 +1,16 @@
 "use client";
 import React, { useState, useRef } from "react";
 
-const ImageGallery = ({ videos }: { videos: any }) => {
+interface GalleryVideo {
+  video?: string;
+  name?: string;
+}
+
+const ImageGallery = ({ videos }: { videos: GalleryVideo[] }) => {
   console.log("client: ", videos);
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedImg, setSelectedImg] = useState("");
   const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
   const [playingVideos, setPlayingVideos] = useState<Set<string>>(new Set());
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal(image: any) {
-    setSelectedImg(image);
-    setIsOpen(true);
-  }
 
   const handleVideoClick = (videoSrc: string) => {
     const videoElement = videoRefs.current[videoSrc];
@@ -47,7 +41,7 @@ const ImageGallery = ({ videos }: { videos: any }) => {
 
   function getColumns(colIndex: number) {
     return videos.filter(
-      (video: any, idx: number) => idx % MAX_COLUMNS === colIndex
+      (video: GalleryVideo, idx: number) => idx % MAX_COLUMNS === colIndex
     );
   }
 
@@ -57,13 +51,7 @@ const ImageGallery = ({ videos }: { videos: any }) => {
         (column, idx) => (
           <div key={idx} className="flex flex-col gap-4 lg:gap-4">
             {column.map(
-              (
-                video: {
-                  video: string | undefined;
-                  name: string | undefined;
-                },
-                index: React.Key | null | undefined
-              ) => (
+              (video: GalleryVideo, index: React.Key | null | undefined) => (
                 <div
                   key={index}
                   className="relative overflow-hidden rounded-md shadow-md group"
@@ -110,14 +98,7 @@ const ImageGallery = ({ videos }: { videos: any }) => {
                       )}
                     </div>
                   </div>
-                  {/* <MyModal
-                    isOpen={isOpen}
-                    setIsOpen={setIsOpen}
-                    closeModal={closeModal}
-                    openModal={openModal}
-                    selectedImg={selectedImg}
-                    setSelectedImg={setSelectedImg}
-                  /> */}
+                  {/* Fullscreen modal can be re-added here if needed */}
                 </div>
               )
             )}
